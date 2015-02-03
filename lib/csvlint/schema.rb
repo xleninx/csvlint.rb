@@ -17,6 +17,12 @@ module Csvlint
     def validate_header(header)
       reset
       header.each_with_index do |name,i|
+        puts name.inspect
+        puts '-'*50
+        puts fields.inspect
+        puts '/'*50
+        puts i
+        puts '*'*50
         build_warnings(:header_name, :schema, nil, i+1, name) if fields[i].name != name
       end
       return valid?
